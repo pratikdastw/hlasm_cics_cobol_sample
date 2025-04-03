@@ -1,0 +1,92 @@
+****************************************************************
+* 5. BMS MAP DEFINITION
+****************************************************************
+CUSTSET  DFHMSD TYPE=&SYSPARM,                                         X
+               LANG=COBOL,                                             X
+               MODE=INOUT,                                             X
+               TERM=3270-2,                                            X
+               CTRL=FREEKB,                                            X
+               STORAGE=AUTO,                                           X
+               TIOAPFX=YES
+*
+CUSTMAP  DFHMDI SIZE=(24,80)
+*
+         DFHMDF POS=(1,1),                                             X
+               LENGTH=20,                                              X
+               ATTRB=(NORM,PROT),                                      X
+               COLOR=BLUE,                                             X
+               INITIAL='CUSTOMER INQUIRY'
+*
+         DFHMDF POS=(3,1),                                             X
+               LENGTH=12,                                              X
+               ATTRB=(NORM,PROT),                                      X
+               INITIAL='Customer ID:'
+*
+CUSTID   DFHMDF POS=(3,14),                                            X
+               LENGTH=6,                                               X
+               ATTRB=(NORM,UNPROT,IC),                                 X
+               INITIAL='______'
+*
+         DFHMDF POS=(5,1),                                             X
+               LENGTH=12,                                              X
+               ATTRB=(NORM,PROT),                                      X
+               INITIAL='Name:'
+*
+NAME     DFHMDF POS=(5,14),                                            X
+               LENGTH=30,                                              X
+               ATTRB=(NORM,PROT)
+*
+         DFHMDF POS=(6,1),                                             X
+               LENGTH=12,                                              X
+               ATTRB=(NORM,PROT),                                      X
+               INITIAL='Address:'
+*
+ADDR     DFHMDF POS=(6,14),                                            X
+               LENGTH=50,                                              X
+               ATTRB=(NORM,PROT)
+*
+         DFHMDF POS=(7,1),                                             X
+               LENGTH=12,                                              X
+               ATTRB=(NORM,PROT),                                      X
+               INITIAL='Balance:'
+*
+BALANCE  DFHMDF POS=(7,14),                                            X
+               LENGTH=12,                                              X
+               ATTRB=(NORM,PROT)
+*
+         DFHMDF POS=(8,1),                                             X
+               LENGTH=15,                                              X
+               ATTRB=(NORM,PROT),                                      X
+               INITIAL='Calc Amount:'
+*
+CALCAMT  DFHMDF POS=(8,17),                                            X
+               LENGTH=12,                                              X
+               ATTRB=(NORM,PROT)
+*
+         DFHMDF POS=(9,1),                                             X
+               LENGTH=13,                                              X
+               ATTRB=(NORM,PROT),                                      X
+               INITIAL='Julian Date:'
+*
+JDATE    DFHMDF POS=(9,15),                                            X
+               LENGTH=7,                                               X
+               ATTRB=(NORM,PROT)
+*
+         DFHMDF POS=(22,1),                                            X
+               LENGTH=12,                                              X
+               ATTRB=(NORM,PROT),                                      X
+               COLOR=RED,                                              X
+               INITIAL='Message:'
+*
+MESSAGE  DFHMDF POS=(22,14),                                           X
+               LENGTH=50,                                              X
+               ATTRB=(BRT,PROT)
+*
+         DFHMDF POS=(24,1),                                            X
+               LENGTH=79,                                              X
+               ATTRB=(NORM,PROT),                                      X
+               COLOR=BLUE,                                             X
+               INITIAL='F3=Exit  F12=Cancel'
+*
+         DFHMSD TYPE=FINAL
+         END
